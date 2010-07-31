@@ -1,6 +1,6 @@
 geany is a nice lightweight ide but lacked syntax highlighting and auto-complete for javascript, let alone V8 or node.js.
 
-Putting that right just meant building 2 files:
+Putting that right just meant building 2 files (on the Downloads page):
 
 filetypes.javascript to go in ~/.config/geany/filedefs for highlighting
 
