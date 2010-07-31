@@ -1,0 +1,12 @@
+geany is a nice lightweight ide but lacked syntax highlighting and auto-complete for javascript, let alone V8 or node.js.
+
+Putting that right just meant building 2 files:
+
+filetypes.javascript to go in ~/.config/geany/filedefs for highlighting
+
+Javascript.js.tags to go in ~/.config/geany/tags for auto-complete
+
+
+
+
+
