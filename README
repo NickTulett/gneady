@@ -7,6 +7,9 @@ filetypes.javascript to go in ~/.config/geany/filedefs for highlighting
 Javascript.js.tags to go in ~/.config/geany/tags for auto-complete
 
 
+You can also set 
+  node %f 
+as the compile command to run the script you are currently editing.
 
 
 
