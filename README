@@ -9,7 +9,15 @@ Javascript.js.tags to go in ~/.config/geany/tags for auto-complete
 
 You can also set 
   node %f 
-as the compile command to run the script you are currently editing.
+as the compile command in geany 0.18 to run the script you are currently editing.
+
+Alternatively, in geany 0.19 you can set a couple of build commands for js source files:
+  node %f
+press F8 to run 
+and (if you have installed node-inspector)
+  node ~/node/node-inspector/bin/inspector.js --start=%f
+press F9 to start debugging.
+
 
 
 
