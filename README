@@ -6,6 +6,7 @@ filetypes.javascript to go in ~/.config/geany/filedefs for highlighting
 
 Javascript.js.tags to go in ~/.config/geany/tags for auto-complete
 
+============================================================================================
 
 You can also set 
   node %f 
@@ -18,10 +19,7 @@ and (if you have installed node-inspector)
   node ~/node/node-inspector/bin/inspector.js --start=%f
 press F9 to start debugging.
 
-
-If you prefer to see something a bit better formatted (as with the original JSlint page, you can do this instead:
-
-
+============================================================================================
 
 You can also add a "lint" build command:
  node ~/linter.js %d/%f
@@ -45,7 +43,8 @@ fs.readFile(inFile, function (err, lintable) {
     }
 });
 
-================================================================================================================
+============================================================================================
+
 If you prefer the sort of output you get with the JSlint web site, you can also do this:
 
 var inFile = process.argv[2],
