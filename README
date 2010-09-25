@@ -18,6 +18,27 @@ and (if you have installed node-inspector)
   node ~/node/node-inspector/bin/inspector.js --start=%f
 press F9 to start debugging.
 
+You can also add a "lint" build command node ~/linter.js %d/%f
+Where linter.js is Douglas Crockford's fulljslint.js with this small addition:
+
+var inFile = process.argv[2],
+    sys = require("sys"),
+    fs = require("fs");
+
+sys.puts(inFile);
+
+fs.readFile(inFile, function (err, lintable) {
+    if (!err) {
+        if (JSLINT(lintable.toString())) {
+            sys.puts("Nothing untoward");
+        } else {
+            console.log(sys.inspect(JSLINT.errors));
+        }
+    } else {
+        sys.log("File not found!");
+    }
+});
+
 
 
 
