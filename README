@@ -55,15 +55,18 @@ var inFile = process.argv[2],
 sys.puts(inFile);
 
 fs.readFile(inFile, function (err, lintable) {
-    var JSlintCSS = "#errors {background-color:mistyrose;border:2px solid black;margin:1em;padding:1em;}#errors p {margin-left:2em;}#errors p.evidence {font-family:monospace;margin-left:0;}#functions {background-color:white;}#members {background-color:peachpuff;}#functions, #members {border:2px solid black;font-family:monospace;margin:1em;padding:1em;}#functions div {margin-left:10em;text-indent:-5em;}#functions div.function {margin-left:0;text-indent:0;}"
+    var JSlintCSS = "#errors {background-color:mistyrose;border:2px solid black;margin:1em;padding:1em;}#errors p {margin-left:2em;}#errors p.evidence {font-family:monospace;margin-left:0;}#functions {background-color:white;}#members {background-color:peachpuff;}#functions, #members {border:2px solid black;font-family:monospace;margin:1em;padding:1em;}#functions div {margin-left:10em;text-indent:-5em;}#functions div.function {margin-left:0;text-indent:0;}";
     if (!err) {
         if (JSLINT(lintable.toString())) {
             sys.puts("Nothing untoward");
         } else {
             sys.puts("JSlint report available at localhost:8181");
-            httpServer = http.createServer(function (request, response) {
+            var httpServer = http.createServer(function (request, response) {
                 response.writeHead(200, {'Content-Type': "text/html", "Expires": "now"});
-                response.end("<html><head><title>JSlint report</title><style>" + JSlintCSS + "</style></head><body>" + JSLINT.report() + "</body></html>");
+                response.end("<html><head><title>JSlint report</title><style>" +
+                    JSlintCSS + "</style></head><body>" +
+                    "<H1>JSlint</H1><H2>" + inFile + "</H2><H3>" + new Date() + "</H3>" +
+                    JSLINT.report() + "</body></html>");
                 process.exit(0);
             }).listen(8181);
         }
